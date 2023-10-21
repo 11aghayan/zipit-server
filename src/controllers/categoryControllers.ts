@@ -9,5 +9,5 @@ export {
   addCategory,
   editCategory,
   deleteCategory,
-  getCategories_public,
+  getCategories_public
 };

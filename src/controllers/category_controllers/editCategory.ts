@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 
 import { serverError } from '../../errors';
-import returnOk from '../../utils/returnOk';
+import okResponse from '../../utils/okResponse';
 
 export default async function (req: Request, res: Response) {
   try {
@@ -10,7 +10,7 @@ export default async function (req: Request, res: Response) {
 
     // TODO: try to change in db. If id is not in db return 404
 
-    return returnOk(res, 201);
+    return okResponse(res, 201);
   } catch (error) {
     console.log(error);
     return serverError(res);

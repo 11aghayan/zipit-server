@@ -1,12 +1,15 @@
 import { Request, Response } from "express";
 import { serverError } from "../../errors";
+import okResponse from "../../utils/okResponse";
 
 export default async function (req: Request, res: Response) {
   try {
-    // TODO: get categories from db
+    // const { id } = req.params;
 
-    const categories: [] = [];
-    return res.json(categories);
+    // TODO: delete from db
+    // TODO: get category, reduce qty by 1
+
+    return okResponse(res);
   } catch (error) {
     console.log(error);
     return serverError(res);

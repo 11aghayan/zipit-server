@@ -3,10 +3,14 @@ import { serverError } from "../../errors";
 
 export default async function (req: Request, res: Response) {
   try {
-    // TODO: get categories from db
+    // const { lang, id } = req.params;
+    
+    // TODO: Get item by id
+    // TODO: Filter by lang 
 
-    const categories: [] = [];
-    return res.json(categories);
+    const item = {};
+    
+    return res.json(item);
   } catch (error) {
     console.log(error);
     return serverError(res);
