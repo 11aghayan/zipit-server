@@ -1,13 +1,10 @@
 import { Request, Response } from "express";
 import { serverError } from "../../errors";
-import customError from "../../errors/customError";
 import returnOk from "../../utils/returnOk";
 
-export default function async (req: Request, res: Response) {
+export default async function (req: Request, res: Response) {
   try {
-    const { id } = req.params;
-
-    if (!id) return customError(res, 400, 'Category ID not provided');
+    // const { id } = req.params;
 
     // TODO: Try to delete category in db, if id is wrong return error
 

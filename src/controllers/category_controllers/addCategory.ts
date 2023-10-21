@@ -4,7 +4,7 @@ import { serverError } from '../../errors';
 import { LanguageStringType } from '../../types';
 import returnOk from '../../utils/returnOk';
 
-export default function async (req: Request, res: Response) {
+export default async function (req: Request, res: Response) {
   try {
     const label = req.body.label as LanguageStringType;
 

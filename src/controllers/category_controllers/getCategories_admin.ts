@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { serverError } from "../../errors";
 
-export default function async (req: Request, res: Response) {
+export default async function (req: Request, res: Response) {
   try {
     // TODO: get categories from db
 

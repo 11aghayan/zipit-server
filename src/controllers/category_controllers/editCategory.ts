@@ -2,15 +2,11 @@ import type { Request, Response } from 'express';
 
 import { serverError } from '../../errors';
 import returnOk from '../../utils/returnOk';
-import customError from '../../errors/customError';
 
-export default function async (req: Request, res: Response) {
+export default async function (req: Request, res: Response) {
   try {
-    const { id } = req.params;
-    const { body } = req;
-
-    if (!id) return customError(res, 400, 'Category ID not provided');
-
+    // const { id } = req.params;
+    // const { body } = req;
 
     // TODO: try to change in db. If id is not in db return 404
 
