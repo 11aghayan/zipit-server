@@ -1,17 +1,22 @@
 import { Request, Response } from "express";
-// import { LanguageType } from "../../types";
+
+import { LanguageType } from "../../types";
 import { serverError } from "../../errors";
+import prisma from "../../prisma";
 
 export default async function (req: Request, res: Response) {
   try {
-    // const lang = req.params.lang as LanguageType;
+    const lang = req.params.lang as LanguageType;
 
-    // TODO: Get categories from DB
-    // TODO: if categories.length > 0 filter categories by lang 
+    const categories = await prisma.category.findMany();
 
-    const categories: [] = [];
+    // Leaving label matching lang
+    const langCategories = categories.map(category => ({
+      ...category,
+      label: category.label[lang]
+    })); 
 
-    return res.json(categories);
+    return res.json(langCategories);
   } catch (error) {
     return serverError(res);
   }

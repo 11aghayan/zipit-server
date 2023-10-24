@@ -7,11 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-type CategoryBodyType {
-  label     LanguageStringType
-  itemsQty  Int
-}
-
 type LanguageStringType {
   am String
   ru String
@@ -35,7 +30,7 @@ type PhotoType {
 
 model Item {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  category    CategoryBodyType
+  category    String   @db.ObjectId
   name        LanguageStringType
   price       Float
   promo       Int?

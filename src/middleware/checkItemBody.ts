@@ -19,7 +19,7 @@ export default function (req: Request, res: Response, next: NextFunction) {
   const sizeUnits = ['mm', 'cm', 'm'];
   const minOrderUnits = ['pcs', 'cm', 'box', 'roll'];
   
-  if (!category || !objLength(category)) return customError(res, 400, 'Category not provided');
+  if (!category) return customError(res, 400, 'Category not provided');
   if (!name || !objLength(name)) return customError(res, 400, 'Name not provided');
   if (!name.am) return customError(res, 400, 'Armenian name not provided');
   if (!name.ru) return customError(res, 400, 'Russian name not provided');

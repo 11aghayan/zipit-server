@@ -6,13 +6,10 @@ export type LanguageStringType = {
 
 export type LanguageType = 'am' | 'ru'; 
 
-export type CategoryBodyType = {
+export type CategoryType = {
+  id: string;
   label: LanguageStringType;
   itemsQty: number
-};
-
-export type CategoryType = CategoryBodyType & {
-  id: string;
 }
 
 export type PromoType = number | null;
@@ -38,7 +35,7 @@ export type PhotoType = {
 };
 
 export type ItemBodyType = {
-  category: CategoryType;
+  category: string;
   name: LanguageStringType;
   price: number;
   promo: PromoType;

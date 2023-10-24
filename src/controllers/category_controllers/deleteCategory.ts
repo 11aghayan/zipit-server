@@ -1,15 +1,30 @@
 import { Request, Response } from "express";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+
 import { serverError } from "../../errors";
 import okResponse from "../../utils/okResponse";
+import prisma from "../../prisma";
+import handlePrismaErrors from "../../errors/handlePrismaErrors";
 
 export default async function (req: Request, res: Response) {
   try {
-    // const { id } = req.params;
+    const { id } = req.params;
 
-
-    // TODO: Find category in db by id, if id is wrong return error
-    // TODO: If qty > 0 return error
-    // TODO: Delete category
+    try {
+      await prisma.category.delete({
+        where: {
+          id,
+          itemsQty: {
+            lt: 1
+          }
+        }
+      });
+    } catch (error) {
+      const prismaError = error as PrismaClientKnownRequestError;
+      console.log(prismaError);
+      
+      return handlePrismaErrors(res, prismaError, 'categoryDelete');
+    }
 
     return okResponse(res);
   } catch (error) {

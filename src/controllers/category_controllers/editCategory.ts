@@ -1,16 +1,33 @@
 import type { Request, Response } from 'express';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 
 import { serverError } from '../../errors';
 import okResponse from '../../utils/okResponse';
+import prisma from '../../prisma';
+import handlePrismaErrors from '../../errors/handlePrismaErrors';
 
 export default async function (req: Request, res: Response) {
   try {
-    // const { id } = req.params;
-    // const { body } = req;
+    const { id } = req.params;
+    const { label } = req.body;
+    try {
+      await prisma.category.update({
+        where: {
+          id,
+          OR:undefined
+        },
+        data: {
+          label
+        }
+      });
+    } catch (error) {
+      const prismaError = error as PrismaClientKnownRequestError;
+      console.log(prismaError);
 
-    // TODO: try to change in db. If id is not in db return 404
+      return handlePrismaErrors(res, prismaError);
+    }
 
-    return okResponse(res, 201);
+    return okResponse(res, 200);
   } catch (error) {
     console.log(error);
     return serverError(res);
