@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type CategoryBodyType {
+  label     LanguageStringType
+  itemsQty  Int
+}
+
+type LanguageStringType {
+  am String
+  ru String
+} 
+
+type SizeType {
+  val   Int
+  unit  String
+}
+
+type MinOrderType {
+  qty   Int
+  unit  String
+}
+
+type PhotoType {
+  src   String
+  qty   Int
+  color LanguageStringType
+}
+
+model Item {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  category    CategoryBodyType
+  name        LanguageStringType
+  price       Float
+  promo       Int?
+  size        SizeType
+  minOrder    MinOrderType
+  photos      PhotoType[]
+  description LanguageStringType
+}
+
+model Category {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  label     LanguageStringType
+  itemsQty  Int @default(0)
+}
