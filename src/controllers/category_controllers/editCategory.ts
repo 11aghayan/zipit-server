@@ -13,8 +13,7 @@ export default async function (req: Request, res: Response) {
     try {
       await prisma.category.update({
         where: {
-          id,
-          OR:undefined
+          id
         },
         data: {
           label
@@ -22,7 +21,6 @@ export default async function (req: Request, res: Response) {
       });
     } catch (error) {
       const prismaError = error as PrismaClientKnownRequestError;
-      console.log(prismaError);
 
       return handlePrismaErrors(res, prismaError);
     }

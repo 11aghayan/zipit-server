@@ -21,7 +21,6 @@ export default async function (req: Request, res: Response) {
       });
     } catch (error) {
       const prismaError = error as PrismaClientKnownRequestError;
-      console.log(prismaError);
       
       return handlePrismaErrors(res, prismaError, 'categoryDelete');
     }

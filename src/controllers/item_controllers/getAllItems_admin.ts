@@ -7,6 +7,7 @@ export default async function (req: Request, res: Response) {
     // const categories = req.query.categories?.split(',') || null;
     // const page = Number(req.query.page || 1);
 
+    // TODO: Create Util function for queries
     // TODO: get items from db matching query
 
     // Filtering items by page
