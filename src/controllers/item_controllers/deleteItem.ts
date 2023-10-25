@@ -19,7 +19,7 @@ export default async function (req: Request, res: Response) {
 
       await prisma.category.update({
         where: {
-          id: item.category
+          id: item.category.id
         },
         data: {
           itemsQty: {

@@ -2,11 +2,12 @@ import { Request, Response } from "express";
 import { serverError } from "../../errors";
 import okResponse from "../../utils/okResponse";
 import prisma from "../../prisma";
+import { ItemBodyType } from "../../types";
 
 export default async function (req: Request, res: Response) {
   try {
-    const { body } = req;
-    const categoryId = body?.category; 
+    const body = req.body as ItemBodyType;
+    const categoryId = body?.category.id; 
 
     await prisma.item.create({
       data: body

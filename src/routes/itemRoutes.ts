@@ -14,8 +14,6 @@ import {
 import { checkId, checkLang, convertPhotosToWebp, filterItems } from '../middleware';
 import checkItemBody from '../middleware/checkItemBody';
 
-// TODO: Add convertToWebp middleware to post and put routes 
-
 itemsRouter.get('/admin', filterItems, getAllItems_admin);
 itemsRouter.get('/:lang', checkLang, filterItems, getAllItems_public);
 itemsRouter.get('/item/:lang/:id', checkLang, checkId, getItem);

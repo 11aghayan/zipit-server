@@ -34,8 +34,13 @@ export type PhotoType = {
   color: LanguageStringType;
 };
 
+export type ItemCategoryType = {
+  id: string;
+  name: LanguageStringType;
+}
+
 export type ItemBodyType = {
-  category: string;
+  category: ItemCategoryType;
   name: LanguageStringType;
   price: number;
   promo: PromoType;

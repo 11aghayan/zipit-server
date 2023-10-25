@@ -1,6 +1,7 @@
 
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 
 // Not Found controller import
 import notFoundController from './controllers/notFoundController';
@@ -13,6 +14,7 @@ const BASE_URL = '/api/v1';
 
 // Middleware
 app.use(express.json({ limit: '10mb' }));
+app.use(cors());
 
 // Routes
 app.use(`${BASE_URL}/categories`, categoryRouter);

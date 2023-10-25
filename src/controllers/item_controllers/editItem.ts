@@ -25,14 +25,11 @@ export default async function (req: Request, res: Response) {
         data: body
       });
       
-      const oldCategoryId = oldItem?.category;
+      const oldCategoryId = oldItem?.category.id;
       
       await prisma.category.update({
         where: {
           id: oldCategoryId,
-          itemsQty: {
-
-          }
         },
         data: {
           itemsQty: {
@@ -41,7 +38,7 @@ export default async function (req: Request, res: Response) {
         }
       });
 
-      const newCategoryId = newItem?.category;
+      const newCategoryId = newItem?.category.id;
       
       await prisma.category.update({
         where: {

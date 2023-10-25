@@ -28,9 +28,14 @@ type PhotoType {
   color LanguageStringType
 }
 
+type ItemCategoryType {
+  id   String               @db.ObjectId
+  name LanguageStringType
+}
+
 model Item {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  category    String   @db.ObjectId
+  id          String              @id @default(auto()) @map("_id") @db.ObjectId
+  category    ItemCategoryType
   name        LanguageStringType
   price       Float
   promo       Int?
@@ -41,7 +46,7 @@ model Item {
 }
 
 model Category {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String              @id @default(auto()) @map("_id") @db.ObjectId
   label     LanguageStringType
-  itemsQty  Int @default(0)
+  itemsQty  Int                 @default(0)
 }
