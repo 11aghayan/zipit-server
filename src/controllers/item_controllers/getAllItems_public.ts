@@ -1,24 +1,22 @@
 import { Request, Response } from "express";
+
 import { serverError } from "../../errors";
+import { ItemsResponseType, LanguageType } from "../../types";
+import filterPhotoLang from "../../utils/filterPhotoLang";
 
 export default async function (req: Request, res: Response) {
   try {
-    // const { lang } = req.params;
-    // const { promo } = req.query;
-    // const categories = req.query.categories?.split(',') || null;
-    // const page = Number(req.query.page || 1);
+    const lang = req.params.lang as LanguageType;
+    const response = req.body.response as ItemsResponseType;
 
-    // TODO: get items from db matching query
-    // TODO: filter items by lang
-
-    // Filtering items by page
-    // const count = 15;
-    // const pages = Math.ceil(filteredItems.length / count); 
-    // const start = (page - 1) * count;
-    // const end = start + count;
-
-    const items = { items: [], length: 0, page: 1};
-    return res.json(items);
+    const langItems = response.items.map(item => ({
+      ...item,
+      name: item.name[lang],
+      description: item.description[lang],
+      photos: filterPhotoLang(item.photos, lang),
+    }));
+    
+    return res.json({ ...response, items: langItems });
   } catch (error) {
     console.log(error);
     return serverError(res);

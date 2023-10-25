@@ -5,6 +5,7 @@ import handlePrismaErrors from "../../errors/handlePrismaErrors";
 import prisma from "../../prisma";
 import { ItemBodyType, LanguageType } from "../../types";
 import { serverError } from "../../errors";
+import filterPhotoLang from "../../utils/filterPhotoLang";
 
 export default async function (req: Request, res: Response) {
   try {
@@ -22,10 +23,7 @@ export default async function (req: Request, res: Response) {
       // Leaving props that match lang
       const name = item.name[lang];
       const description = item?.description[lang];
-      const photos = item.photos.map(photo => ({
-        ...photo,
-        color: photo.color[lang]
-      }));
+      const photos = filterPhotoLang(item.photos, lang);
 
       const langItem = { ...item, name, description, photos };
   

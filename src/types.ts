@@ -44,3 +44,14 @@ export type ItemBodyType = {
   photos: PhotoType[];
   description: LanguageStringType;
 }
+
+export type ItemType = ItemBodyType & {
+  id: string;
+}
+
+export type ItemsResponseType = {
+  items: ItemType[];
+  pages: number;
+  page: number;
+  length?: number;
+}
