@@ -5,6 +5,7 @@ import filterItems from "./filterItems";
 import convertPhotosToWebp from "./convertPhotosToWebp";
 import checkLogin from "./checkLogin";
 import verifyJWT from "./verifyJWT";
+import checkPasswordChange from "./checkPasswordChange";
 
 export {
   checkCategoryLabel,
@@ -14,4 +15,5 @@ export {
   convertPhotosToWebp,
   checkLogin,
   verifyJWT,
+  checkPasswordChange
 };

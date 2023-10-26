@@ -17,12 +17,14 @@ import {
 
 const categoryRouter = express.Router();
 
-// Add 
+// Protected Routes
 categoryRouter.post('/', verifyJWT, checkCategoryLabel, addCategory);
 categoryRouter.get('/admin', verifyJWT, getCategories_admin);
 categoryRouter.route('/:id')
  .put(verifyJWT, checkId, checkCategoryLabel, editCategory)
  .delete(verifyJWT, checkId, deleteCategory);
+
+// Not Protected Routes
 categoryRouter.get('/:lang', checkLang, getCategories_public);
 
 export default categoryRouter;
