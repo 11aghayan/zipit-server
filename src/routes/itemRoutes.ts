@@ -11,15 +11,15 @@ import {
   deleteItem
 } from '../controllers/itemControllers';
 
-import { checkId, checkLang, convertPhotosToWebp, filterItems } from '../middleware';
+import { checkId, checkLang, convertPhotosToWebp, filterItems, verifyJWT } from '../middleware';
 import checkItemBody from '../middleware/checkItemBody';
 
-itemsRouter.get('/admin', filterItems, getAllItems_admin);
+itemsRouter.get('/admin', verifyJWT, filterItems, getAllItems_admin);
 itemsRouter.get('/:lang', checkLang, filterItems, getAllItems_public);
 itemsRouter.get('/item/:lang/:id', checkLang, checkId, getItem);
-itemsRouter.post('/', checkItemBody, convertPhotosToWebp, addItem);
+itemsRouter.post('/', verifyJWT, checkItemBody, convertPhotosToWebp, addItem);
 itemsRouter.route('/:id') 
-  .put(checkId, checkItemBody, convertPhotosToWebp, editItem)
-  .delete(checkId, deleteItem);
+  .put(verifyJWT, checkId, checkItemBody, convertPhotosToWebp, editItem)
+  .delete(verifyJWT, checkId, deleteItem);
 
 export default itemsRouter;

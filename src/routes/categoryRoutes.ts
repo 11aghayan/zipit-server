@@ -4,6 +4,7 @@ import {
   checkCategoryLabel,
   checkId,
   checkLang,
+  verifyJWT,
 
  } from '../middleware';
 import { 
@@ -17,11 +18,11 @@ import {
 const categoryRouter = express.Router();
 
 // Add 
-categoryRouter.post('/', checkCategoryLabel, addCategory);
-categoryRouter.get('/admin', getCategories_admin);
+categoryRouter.post('/', verifyJWT, checkCategoryLabel, addCategory);
+categoryRouter.get('/admin', verifyJWT, getCategories_admin);
 categoryRouter.route('/:id')
- .put(checkId, checkCategoryLabel, editCategory)
- .delete(checkId, deleteCategory);
+ .put(verifyJWT, checkId, checkCategoryLabel, editCategory)
+ .delete(verifyJWT, checkId, deleteCategory);
 categoryRouter.get('/:lang', checkLang, getCategories_public);
 
 export default categoryRouter;

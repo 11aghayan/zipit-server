@@ -2,21 +2,31 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
+
+// Cors options import 
+import corsOptions from './config/corsOptions';
 
 // Not Found controller import
 import notFoundController from './controllers/notFoundController';
 
+// Credentials Middleware import
+import credentials from './middleware/credentials';
+
 // Route imports
-import { categoryRouter, itemsRouter } from './routes';
+import { categoryRouter, itemsRouter, authRouter } from './routes';
 
 const app = express();
 const BASE_URL = '/api/v1';
 
 // Middleware
 app.use(express.json({ limit: '10mb' }));
-app.use(cors());
+app.use(cookieParser());
+app.use(cors(corsOptions));
+app.use(credentials);
 
 // Routes
+app.use(`${BASE_URL}/auth`, authRouter);
 app.use(`${BASE_URL}/categories`, categoryRouter);
 app.use(`${BASE_URL}/items`, itemsRouter);
 app.use(notFoundController);
@@ -29,9 +39,7 @@ const startServer = () => {
   });
 };
 
-// Try to connect to DB then start server
 try {
-  // TODO: Connect to DB
   startServer();
 } catch (error) {
   console.log(error);

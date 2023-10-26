@@ -11,6 +11,7 @@ export default async function (req: Request, res: Response) {
 
     const langItems = response.items.map(item => ({
       ...item,
+      category: { ...item.category, name: item.category.name[lang] },
       name: item.name[lang],
       description: item.description[lang],
       photos: filterPhotoLang(item.photos, lang),
