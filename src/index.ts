@@ -22,8 +22,8 @@ const BASE_URL = '/api/v1';
 // Middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
-app.use(cors(corsOptions));
 app.use(credentials);
+app.use(cors(corsOptions));
 
 // Routes
 app.use(`${BASE_URL}/auth`, authRouter);
