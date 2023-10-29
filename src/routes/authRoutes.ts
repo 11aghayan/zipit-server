@@ -10,6 +10,6 @@ authRouter.put('/', verifyJWT, checkPasswordChange, changePassword);
 // Not Protected routes
 authRouter.post('/login', checkLogin, login);
 authRouter.get('/refresh', refreshToken);
-authRouter.post('/logout', logout);
+authRouter.get('/logout', logout);
 
 export default authRouter;

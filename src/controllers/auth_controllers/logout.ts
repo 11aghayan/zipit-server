@@ -7,7 +7,7 @@ import okResponse from "../../utils/okResponse";
 
 export default async function(req: Request, res: Response) {
   const { cookies } = req;
-
+  
   if (!cookies.jwt) return okResponse(res, 204);
   const refreshToken = cookies.jwt;
 
