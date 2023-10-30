@@ -11,6 +11,8 @@ export default async function (req: Request, res: Response) {
     const { id } = req.params;
     const { body } = req;
 
+    const data = {...body, username: undefined};
+
     try {
       const oldItem = await prisma.item.findUnique({
         where: {
@@ -22,7 +24,7 @@ export default async function (req: Request, res: Response) {
         where: {
           id
         },
-        data: body
+        data
       });
       
       const oldCategoryId = oldItem?.category.id;

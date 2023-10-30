@@ -9,8 +9,10 @@ export default async function (req: Request, res: Response) {
     const body = req.body as ItemBodyType;
     const categoryId = body?.category.id; 
 
+    const data = {...body, username: undefined};
+    
     await prisma.item.create({
-      data: body
+      data
     });
     
     await prisma.category.update({
