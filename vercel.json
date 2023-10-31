@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/.*",
-      "dest": "/src/index.js",
+      "dest": "/",
       "methods": ["OPTIONS"],
       "status": 200,
       "headers": {
@@ -13,7 +13,7 @@
     },
     {
       "src": "/.*",
-      "dest": "/src/index.js",
+      "dest": "/",
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
