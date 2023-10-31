@@ -8,12 +8,12 @@ export const allowedOrigins = [
 export const publicCors = cors({
   origin: allowedOrigins[0],
   methods: ['GET'],
-  allowedHeaders: '*'
+  allowedHeaders: ['Content-Type', 'Authorization']
 });
 
 export const adminCors = cors({
   origin: allowedOrigins[1],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: '*',
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 });
