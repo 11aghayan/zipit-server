@@ -28,7 +28,7 @@ app.use(credentials);
 app.use(cors);
 
 // Send 200 OK to Options Request
-app.options('/api/v1/*', handleOptions);
+app.options('*', handleOptions);
 
 // Routes
 app.use(`${BASE_URL}/auth`, authRouter);
