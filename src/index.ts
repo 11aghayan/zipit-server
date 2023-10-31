@@ -1,11 +1,10 @@
 
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-// Cors options import 
-import corsOptions from './config/corsOptions';
+// Cors middleware import
+import cors from './middleware/cors';
 
 // Not Found controller import
 import notFoundController from './controllers/notFoundController';
@@ -23,7 +22,7 @@ const BASE_URL = '/api/v1';
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
 app.use(credentials);
-app.use(cors(corsOptions));
+app.use(cors);
 
 // Routes
 app.use(`${BASE_URL}/auth`, authRouter);

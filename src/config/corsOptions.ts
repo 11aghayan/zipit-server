@@ -1,11 +1,20 @@
+import cors from 'cors';
+
 export const allowedOrigins = [
   'https://zipit.am',
-  'https://zipit-admin.vercel.app',
-  'https://zipit-admin-11aghayan.vercel.app',
-  'https://zipit-admin-git-main-11aghayan.vercel.app',
-  'https://zipit-admin-8d880qzk5-11aghayan.vercel.app'
+  'https://zipit-admin.vercel.app'
 ];
 
-export default {
-  origin: allowedOrigins
-};
+export const adminCors = cors({
+  origin: allowedOrigins[0],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: '*',
+  credentials: true
+});
+
+export const publicCors = cors({
+  origin: allowedOrigins[1],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: '*',
+  credentials: true
+});
