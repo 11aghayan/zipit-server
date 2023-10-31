@@ -4,7 +4,8 @@
     {
       "src": "/api/(.*)",
       "methods": ["OPTIONS"],
-      "status": 200
+      "status": 200,
+      "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app"
     }
   ]
 }
