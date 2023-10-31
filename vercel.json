@@ -1,10 +1,7 @@
 {
-  "rewrites": [
-    {"source": "/(.*)", "destination": "/src/index.ts"}
-  ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/.*",
       "dest": "/src/index.ts",
       "methods": ["OPTIONS"],
       "status": 200,
@@ -15,7 +12,7 @@
       }
     },
     {
-      "src": "/api/(.*)",
+      "src": "/.*",
       "dest": "/src/index.ts",
       "headers": {
         "Access-Control-Allow-Credentials": "true",
