@@ -24,6 +24,11 @@ app.use(cookieParser());
 app.use(credentials);
 app.use(cors);
 
+
+app.options(BASE_URL, (req, res) => {
+  res.sendStatus(200);
+});
+
 // Routes
 app.use(`${BASE_URL}/auth`, authRouter);
 app.use(`${BASE_URL}/categories`, categoryRouter);

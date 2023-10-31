@@ -41,7 +41,7 @@ export default async function(req: Request, res: Response) {
       const maxAge = 24 * 60 * 60 * 1000;
       
       res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'none', maxAge, secure: true });
-      return res.json({ ok: true, accessToken });
+      return res.status(200).json({ ok: true, accessToken });
     } catch (error) {
       const prismaError = error as PrismaClientKnownRequestError;
       return handlePrismaErrors(res, prismaError);
