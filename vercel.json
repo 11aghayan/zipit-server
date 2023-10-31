@@ -1,24 +1,17 @@
 {
-  "routes": [
-    {
-      "src": "/.*",
-      "dest": "/",
-      "methods": ["OPTIONS"],
-      "status": 200,
-      "headers": {
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
-      }
+  "rewrites": {
+      "source": "/(.*)",
+      "destination": "/"
     },
+  "headers": [
     {
-      "src": "/api/v1/auth/refresh",
-      "dest": "/build/controllers/auth_controllers/refreshToken.js",
-      "headers": {
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
-      }
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "https://zipit-admin.vercel.app" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
+      ]
     }
   ]
 }
