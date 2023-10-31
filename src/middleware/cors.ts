@@ -4,6 +4,7 @@ import { adminCors, publicCors } from '../config/corsOptions';
 
 export default function(req: Request, res: Response, next: NextFunction) {
   const origin = req.get('origin');
+  console.log(origin);
   if (origin === 'https://zipit-admin.onrender.com') {
     adminCors(req, res, next);
   } else if (origin === 'https://zipit.am') {

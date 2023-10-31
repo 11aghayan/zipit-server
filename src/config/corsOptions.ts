@@ -5,16 +5,15 @@ export const allowedOrigins = [
   'https://zipit-admin.onrender.com'
 ];
 
-export const adminCors = cors({
+export const publicCors = cors({
   origin: allowedOrigins[0],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: '*',
-  credentials: true
+  methods: ['GET'],
+  allowedHeaders: '*'
 });
 
-export const publicCors = cors({
+export const adminCors = cors({
   origin: allowedOrigins[1],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: '*',
   credentials: true
 });
