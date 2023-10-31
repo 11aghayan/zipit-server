@@ -2,7 +2,7 @@ import cors from 'cors';
 
 export const allowedOrigins = [
   'https://zipit.am',
-  'https://zipit-admin.vercel.app'
+  'https://zipit-admin.onrender.com'
 ];
 
 export const adminCors = cors({
