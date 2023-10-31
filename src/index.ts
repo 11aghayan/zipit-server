@@ -4,8 +4,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 
 // Cors middleware import
-// import cors from './middleware/cors';
-import cors from 'cors';
+import cors from './middleware/cors';
 
 // Not Found controller import
 import notFoundController from './controllers/notFoundController';
@@ -23,12 +22,7 @@ const BASE_URL = '/api/v1';
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
 app.use(credentials);
-app.use(cors());
-
-
-app.options(BASE_URL, (req, res) => {
-  res.sendStatus(200);
-});
+app.use(cors);
 
 // Routes
 app.use(`${BASE_URL}/auth`, authRouter);
