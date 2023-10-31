@@ -2,17 +2,7 @@
   "version": 2,
   "routes": [
     {
-      "src": "/(.*)",
-      "methods": ["OPTIONS"],
-      "status": 200,
-      "headers": {
-        "Access-Control-Allow-Origin": "https://zipit.am",
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "*"
-      }
-    },
-    {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "methods": ["OPTIONS"],
       "status": 200,
       "headers": {
