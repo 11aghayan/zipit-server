@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "access-control-allow-origin",
-          "value": "*"
+          "value": "https://zipit-admin.vercel.app"
         }
       ]
     }
