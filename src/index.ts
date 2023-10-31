@@ -14,6 +14,7 @@ import credentials from './middleware/credentials';
 
 // Route imports
 import { categoryRouter, itemsRouter, authRouter } from './routes';
+import handleOptions from './middleware/handleOptions';
 
 const app = express();
 const BASE_URL = '/api/v1';
@@ -25,6 +26,7 @@ app.use(credentials);
 app.use(cors);
 
 // Routes
+app.use(handleOptions);
 app.use(`${BASE_URL}/auth`, authRouter);
 app.use(`${BASE_URL}/categories`, categoryRouter);
 app.use(`${BASE_URL}/items`, itemsRouter);
