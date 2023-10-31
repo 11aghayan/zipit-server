@@ -7,5 +7,8 @@ export const allowedOrigins = [
 ];
 
 export default {
-  origin: allowedOrigins
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+
 };
