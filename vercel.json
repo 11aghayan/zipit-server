@@ -1,26 +1,13 @@
 {
-  "version": 2,
-  "routes": [
+  "headers": [
     {
-      "src": "/api/(.*)",
-      "methods": ["OPTIONS"],
-      "status": 200,
-      "headers": {
-        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "*"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "src/index.ts",
-      "methods": ["OPTIONS"],
-      "status": 200,
-      "headers": {
-        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "*"
-      }
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "https://zipit-admin.vercel.app" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+        { "key": "Access-Control-Allow-Headers", "value": "*" }
+      ]
     }
   ]
 }
