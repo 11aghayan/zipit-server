@@ -9,6 +9,36 @@
         "Access-Control-Allow-Headers": "Authorization, Content-Type",
         "Access-Control-Allow-Credentials": "true"
       }
+    },
+    {
+      "src": "/api/v1/auth/refresh",
+      "methods": ["OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://zipit.am",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Authorization, Content-Type",
+        "Access-Control-Allow-Credentials": "true"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "Authorization, Content-Type",
+        "Access-Control-Allow-Credentials": "true"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://zipit.am",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "Authorization, Content-Type",
+        "Access-Control-Allow-Credentials": "true"
+      }
     }
   ]
 }
