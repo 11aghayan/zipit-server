@@ -14,7 +14,6 @@ import credentials from './middleware/credentials';
 
 // Route imports
 import { categoryRouter, itemsRouter, authRouter } from './routes';
-import handleOptions from './middleware/handleOptions';
 
 const app = express();
 const BASE_URL = '/api/v1';
@@ -22,7 +21,6 @@ const BASE_URL = '/api/v1';
 // Middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
-app.use((req, res) => handleOptions(req, res));
 app.use(credentials);
 app.use(cors);
 

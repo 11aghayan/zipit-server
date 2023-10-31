@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS", 
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers": "*"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://zipit.am",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers": "*"
+      }
+    }
+  ]
+}
