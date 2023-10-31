@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "routes": [
     {
       "src": "/(.*)",
@@ -11,10 +12,9 @@
     },
     {
       "src": "/(.*)",
-      "methods": "GET",
+      "methods": ["GET"],
       "headers": {
         "Access-Control-Allow-Origin": "https://zipit.am",
-        "Access-Control-Allow-Methods": "GET",
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Headers": "*"
       }
