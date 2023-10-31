@@ -26,7 +26,7 @@ app.use(credentials);
 app.use(cors);
 
 // Routes
-app.use(handleOptions);
+app.use((req, res) => handleOptions(req, res));
 app.use(`${BASE_URL}/auth`, authRouter);
 app.use(`${BASE_URL}/categories`, categoryRouter);
 app.use(`${BASE_URL}/items`, itemsRouter);
