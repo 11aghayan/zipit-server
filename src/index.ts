@@ -15,6 +15,9 @@ import credentials from './middleware/credentials';
 // Route imports
 import { categoryRouter, itemsRouter, authRouter } from './routes';
 
+// Options handle middleware import
+import handleOptions from './middleware/handleOptions';
+
 const app = express();
 const BASE_URL = '/api/v1';
 
@@ -23,6 +26,9 @@ app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
 app.use(credentials);
 app.use(cors);
+
+// Send 200 OK to Options Request
+app.options('/api/v1/*', handleOptions);
 
 // Routes
 app.use(`${BASE_URL}/auth`, authRouter);
