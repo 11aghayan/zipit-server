@@ -2,7 +2,8 @@
   "headers": [
     {
       "source": "/api/(.*)",
-      "Methods": ["OPTIONS"],
+      "methods": ["OPTIONS"],
+      "status": 200,
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "https://zipit-admin.vercel.app" },
