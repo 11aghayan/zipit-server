@@ -19,11 +19,6 @@ import { categoryRouter, itemsRouter, authRouter } from './routes';
 const app = express();
 const BASE_URL = '/api/v1';
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  res.send('Hello There');
-  next();
-});
-
 // Middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
