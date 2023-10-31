@@ -19,7 +19,6 @@
         "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
       }
-    },
-    "continue"
+    }
   ]
 }
