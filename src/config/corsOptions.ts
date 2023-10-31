@@ -1,7 +1,6 @@
 export const allowedOrigins = [
-  'http://localhost:5173',
   'https://zipit.am',
-  // 'https://adminURL.com'
+  'https://zipit-admin.vercel.app/'
 ];
 
 export default {
