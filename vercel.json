@@ -6,14 +6,16 @@
       "status": 200,
       "headers": {
         "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app"
+        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
+        "Access-Control-Allow-Headers": "*"
       }
     },
     {
       "src": "/api/(.*)",
       "headers": {
         "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app"
+        "Access-Control-Allow-Origin": "https://zipit-admin.vercel.app",
+        "Access-Control-Allow-Headers": "*"
       }
     }
   ]
