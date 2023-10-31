@@ -22,11 +22,11 @@ const BASE_URL = '/api/v1';
 // Middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
+app.use((req, res) => handleOptions(req, res));
 app.use(credentials);
 app.use(cors);
 
 // Routes
-app.use((req, res) => handleOptions(req, res));
 app.use(`${BASE_URL}/auth`, authRouter);
 app.use(`${BASE_URL}/categories`, categoryRouter);
 app.use(`${BASE_URL}/items`, itemsRouter);
