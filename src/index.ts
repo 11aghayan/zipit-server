@@ -19,7 +19,7 @@ const app = express();
 const BASE_URL = '/api/v1';
 
 // Middleware
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '30mb' }));
 app.use(cookieParser());
 app.use(credentials);
 app.use(cors);
