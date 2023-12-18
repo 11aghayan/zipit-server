@@ -8,7 +8,7 @@ export const allowedOrigins = [
 ];
 
 export const publicCors = cors({
-  origin: allowedOrigins[0],
+  origin: [allowedOrigins[0], allowedOrigins[3]],
   methods: ['GET'],
   allowedHeaders: ['Content-Type', 'Authorization']
 });
