@@ -2,7 +2,9 @@ import cors from 'cors';
 
 export const allowedOrigins = [
   'https://zipit.am',
-  'https://zipit-admin.onrender.com'
+  'https://zipit-admin.onrender.com',
+  'http://localhost:3000',
+  'http://localhost:5173'
 ];
 
 export const publicCors = cors({
