@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 import bcrypt from 'bcrypt';
 
-import customError from "../../errors/customError";
+import { customError, handlePrismaErrors } from "../../errors";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import handlePrismaErrors from "../../errors/handlePrismaErrors";
 import prisma from "../../prisma";
 import okResponse from "../../utils/okResponse";
 

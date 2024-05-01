@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import customError from "../errors/customError";
+import { customError } from "../errors";
 import objLength from "../utils/objLength";
 import { ItemBodyType } from "../types";
 import photoErrors from "../utils/photoErrors";

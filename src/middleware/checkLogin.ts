@@ -1,11 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import bcrypt from 'bcrypt';
-
-import { serverError } from "../errors";
-import prisma from "../prisma";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import handlePrismaErrors from "../errors/handlePrismaErrors";
-import customError from "../errors/customError";
+
+import prisma from "../prisma";
+import { customError, handlePrismaErrors, serverError } from '../errors';
 
 export default async function(req: Request, res: Response, next: NextFunction) {
   const { username, password } = req.body;

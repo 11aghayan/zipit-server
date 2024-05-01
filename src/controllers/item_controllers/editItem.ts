@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 
-import { serverError } from "../../errors";
+import { serverError, handlePrismaErrors } from "../../errors";
 import okResponse from "../../utils/okResponse";
 import prisma from "../../prisma";
-import handlePrismaErrors from "../../errors/handlePrismaErrors";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 export default async function (req: Request, res: Response) {

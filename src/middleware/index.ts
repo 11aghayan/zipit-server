@@ -1,6 +1,7 @@
 import checkCategoryLabel from "./checkCategoryLabel";
 import checkId from "./checkId";
 import checkLang from "./checkLang";
+import checkSorting from "./checkSorting";
 import filterItems from "./filterItems";
 import convertPhotosToWebp from "./convertPhotosToWebp";
 import checkLogin from "./checkLogin";
@@ -15,5 +16,6 @@ export {
   convertPhotosToWebp,
   checkLogin,
   verifyJWT,
-  checkPasswordChange
+  checkPasswordChange,
+  checkSorting
 };

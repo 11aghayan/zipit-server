@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import customError from "../errors/customError";
+import { customError } from "../errors";
 import { LanguageType } from "../types";
 
 export default async function(req: Request, res: Response, next: NextFunction) {

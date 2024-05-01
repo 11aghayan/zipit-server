@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 import jwt, { JwtPayload, VerifyErrors } from "jsonwebtoken";
 
-import customError from "../../errors/customError";
+import { customError, handlePrismaErrors } from "../../errors";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import handlePrismaErrors from "../../errors/handlePrismaErrors";
 import prisma from "../../prisma";
 
 export default async function(req: Request, res: Response) {

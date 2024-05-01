@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload, VerifyErrors } from 'jsonwebtoken';
 
-import customError from "../errors/customError";
+import { customError } from "../errors";
 
 export default function(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers['authorization'];

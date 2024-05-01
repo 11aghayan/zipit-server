@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import sharp from "sharp";
 
 import { PhotoType } from "../types";
-import customError from "../errors/customError";
+import { customError } from "../errors";
 
 export default function (req: Request, res: Response, next: NextFunction) {
   try {

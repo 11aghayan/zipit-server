@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import prisma from "../../prisma";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import handlePrismaErrors from "../../errors/handlePrismaErrors";
+import { handlePrismaErrors } from "../../errors";
 import okResponse from "../../utils/okResponse";
 
 export default async function(req: Request, res: Response) {

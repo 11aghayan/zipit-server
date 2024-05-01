@@ -32,14 +32,15 @@ app.use(notFoundController);
 
 // PORT and server function
 const PORT = process.env.PORT || 3200;
-const startServer = () => {
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-};
-
-try {
-  startServer();
-} catch (error) {
-  console.log(error);
+function startServer () {
+  try {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error(error);
+    startServer();
+  }
 }
+
+startServer();
