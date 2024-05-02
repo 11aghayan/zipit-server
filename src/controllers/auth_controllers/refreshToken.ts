@@ -27,7 +27,7 @@ export default async function(req: Request, res: Response) {
       const accessToken = jwt.sign(
         { username: jwtPayload.username},
         process.env.ACCESS_TOKEN_SECRET!,
-        { expiresIn: '15m' }
+        { expiresIn: '1d' }
       );
 
       return res.json({ ok: true, accessToken });

@@ -24,7 +24,7 @@ export default async function(req: Request, res: Response) {
 
     if (!isPasswordCorrect) return customError(res, 401, 'Wrong password');
 
-    const hashedPassword = await bcrypt.hash(newPassword, 15);
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
     
     await prisma.user.update({
       where: {
