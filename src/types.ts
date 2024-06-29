@@ -17,7 +17,7 @@ export type PromoType = number | null;
 export type SizeUnitType = 'mm' | 'cm' | 'm';
 
 export type SizeType = {
-  val: number;
+  values: number[];
   unit: SizeUnitType;
 }
 
@@ -30,7 +30,7 @@ export type MinOrderType = {
 
 export type PhotoType = {
   src: string;
-  qty: number;
+  available: boolean;
   color: LanguageStringType;
 };
 

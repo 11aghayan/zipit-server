@@ -13,7 +13,7 @@ type LanguageStringType {
 } 
 
 type SizeType {
-  val   Int
+  values   Float[]
   unit  String
 }
 
@@ -24,7 +24,7 @@ type MinOrderType {
 
 type PhotoType {
   src   String
-  qty   Int
+  available   Boolean
   color LanguageStringType
 }
 
