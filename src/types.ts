@@ -52,7 +52,7 @@ export type ItemBodyType = {
   minOrder: MinOrderType;
   photos: PhotoType[];
   description: LanguageStringType;
-}
+};
 
 export type ItemType = ItemBodyType & {
   id: string;
