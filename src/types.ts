@@ -17,8 +17,13 @@ export type PromoType = number | null;
 export type SizeUnitType = 'mm' | 'cm' | 'm';
 
 export type SizeType = {
-  values: number[];
+  values: SizeValueType[];
   unit: SizeUnitType;
+}
+
+export type SizeValueType = {
+  value: number;
+  available: boolean;
 }
 
 export type MinOrderUnitType = 'pcs' | 'cm' | 'box' | 'roll';
@@ -30,7 +35,6 @@ export type MinOrderType = {
 
 export type PhotoType = {
   src: string;
-  available: boolean;
   color: LanguageStringType;
 };
 

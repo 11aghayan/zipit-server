@@ -12,9 +12,14 @@ type LanguageStringType {
   ru String
 } 
 
+type SizeValueType {
+  value     Float
+  available Boolean
+}
+
 type SizeType {
-  values   Float[]
-  unit  String
+  values   SizeValueType[]
+  unit     String
 }
 
 type MinOrderType {
@@ -24,7 +29,6 @@ type MinOrderType {
 
 type PhotoType {
   src   String
-  available   Boolean
   color LanguageStringType
 }
 
