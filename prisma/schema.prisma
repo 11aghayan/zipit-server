@@ -15,6 +15,7 @@ type LanguageStringType {
 type SizeValueType {
   value     Float
   available Boolean
+  colors    String[]
 }
 
 type SizeType {
