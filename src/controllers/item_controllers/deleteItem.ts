@@ -13,6 +13,9 @@ export default async function (req: Request, res: Response) {
       const item = await prisma.item.delete({
         where: {
           id
+        },
+        select: {
+          category: true
         }
       });
 

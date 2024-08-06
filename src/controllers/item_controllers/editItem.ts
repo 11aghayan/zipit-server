@@ -16,6 +16,9 @@ export default async function (req: Request, res: Response) {
       const oldItem = await prisma.item.findUnique({
         where: {
           id
+        },
+        select: {
+          category: true
         }
       });
 
