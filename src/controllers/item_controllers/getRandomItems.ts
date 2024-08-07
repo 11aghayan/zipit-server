@@ -8,7 +8,7 @@ import getFirstAvailableColorAndSize from "../../utils/getFirstAvailableColorAnd
 
 export default async function (req: Request, res: Response) {
   const lang  = req.params.lang as LanguageType;
-  const elmCount = 10;
+  const elmCount = 20;
   
   try {
 
