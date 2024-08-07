@@ -47,14 +47,6 @@ export default async function (req: Request, res: Response) {
               }
             }
           }
-        },
-        select: {
-          id: true,
-          name: true,
-          photos: true,
-          size: true,
-          price: true,
-          promo: true
         }
       }) as ItemType[];
       
@@ -68,7 +60,10 @@ export default async function (req: Request, res: Response) {
             value: size
           },
           photos: undefined,
-          photo: item.photos.find(photo => photo.color === color)
+          photo: item.photos.find(photo => photo.color === color),
+          category: undefined,
+          description: undefined,
+          minOrder: undefined
         }
       }); 
 
@@ -113,14 +108,6 @@ export default async function (req: Request, res: Response) {
             }
           }
         ]
-      },
-      select: {
-        id: true,
-        name: true,
-        photos: true,
-        size: true,
-        price: true,
-        promo: true
       }
     }) as ItemType[];
     
@@ -135,7 +122,10 @@ export default async function (req: Request, res: Response) {
           value: size
         },
         photos: undefined,
-        photo: item.photos.find(photo => photo.color === color)
+        photo: item.photos.find(photo => photo.color === color),
+        category: undefined,
+        description: undefined,
+        minOrder: undefined
       }
     });
 
