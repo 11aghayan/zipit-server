@@ -36,6 +36,9 @@ export default async function (req: Request, res: Response) {
     if (response.length <= elmCount) {
       const items = await prisma.item.findMany({
         where: {
+          promo: {
+            isSet: true
+          },
           size: {
             is: {
               values: {
