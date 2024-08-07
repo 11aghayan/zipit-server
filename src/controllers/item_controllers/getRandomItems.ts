@@ -47,6 +47,14 @@ export default async function (req: Request, res: Response) {
               }
             }
           }
+        },
+        select: {
+          id: true,
+          name: true,
+          photos: true,
+          size: true,
+          price: true,
+          promo: true
         }
       }) as ItemType[];
       
@@ -105,6 +113,14 @@ export default async function (req: Request, res: Response) {
             }
           }
         ]
+      },
+      select: {
+        id: true,
+        name: true,
+        photos: true,
+        size: true,
+        price: true,
+        promo: true
       }
     }) as ItemType[];
     
