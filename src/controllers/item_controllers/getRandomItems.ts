@@ -27,7 +27,8 @@ export default async function (req: Request, res: Response) {
         }
       },
       select: {
-        id: true
+        id: true,
+        promo: true
       }
     });
 
@@ -36,9 +37,6 @@ export default async function (req: Request, res: Response) {
     if (response.length <= elmCount) {
       const items = await prisma.item.findMany({
         where: {
-          promo: {
-            isSet: true
-          },
           size: {
             is: {
               values: {
@@ -73,21 +71,23 @@ export default async function (req: Request, res: Response) {
       return res.json({ length: filteredItems.length, items: filteredItems });
     }
     
+    let filteredResponse = response.filter(item => item.promo);
+
+    
+    if (filteredResponse.length < elmCount) {
+      filteredResponse = [...filteredResponse, ...response.filter(item => !(item.promo)).slice(0, elmCount - filteredResponse.length)];
+    }
+    
     const indexMap = new Map();
     
     while (indexMap.size < elmCount) {
-      const index = Math.floor(Math.random() * elmCount);
+      const index = Math.floor(Math.random() * filteredResponse.length);
       if (indexMap.has(index)) continue;
 
       indexMap.set(index, true);
     }
     
-    const randomIds = Array.from(indexMap.keys()).reduce((prev: string[], index) => {
-      return [
-        ...prev,
-        response[index].id
-      ];
-    }, []);
+    const randomIds = Array.from(indexMap.keys()).map(index => response[index].id);
     
     const items = await prisma.item.findMany({
       where: {
