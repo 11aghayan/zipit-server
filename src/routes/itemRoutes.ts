@@ -26,7 +26,7 @@ itemsRouter.route('/:id')
 // Not protected routes
 itemsRouter.get('/:lang', checkLang, checkSorting, filterItems, getAllItems_public);
 itemsRouter.get('/:lang/random', checkLang, getRandomItems);
-itemsRouter.get('/:lang/similar', checkLang, getSimilarItems);
+itemsRouter.post('/:lang/similar', checkLang, getSimilarItems);
 itemsRouter.get('/:lang/:id', checkLang, checkId, getItem);
 
 export default itemsRouter;
