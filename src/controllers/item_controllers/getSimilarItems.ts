@@ -7,14 +7,13 @@ import filterItemsByLang from "../../utils/filterItemsByLang";
 import getFirstAvailableColorAndSize from "../../utils/getFirstAvailableColorAndSize";
 
 export default async function (req: Request, res: Response) {
-  const lang = req.params?.lang as LanguageType;
-  const randomItemsUrl = `https://${req.hostname}/api/v1/items/${lang}/random`;
-  const { categoryId , name } = req.body;
-  const elmCount = 20;  
-  
-  if (typeof categoryId !== 'string' || typeof name !== 'string') throw new Error(`Error during type check: Category ID type = ${typeof categoryId}, Name type = ${typeof name}`);
-  
   try {
+    const lang = req.params?.lang as LanguageType;
+    const randomItemsUrl = `https://${req.hostname}/api/v1/items/${lang}/random`;
+    const { categoryId , name } = req.body;
+    const elmCount = 20; 
+    if (typeof categoryId !== 'string' || typeof name !== 'string') throw new Error(`Error during type check: Category ID type = ${typeof categoryId}, Name type = ${typeof name}`);
+  
     const items = await prisma.item.findMany({
       where: {
         AND: [
