@@ -13,7 +13,7 @@ export default async function(req: Request, res: Response, next: NextFunction) {
   const categories: string[] | undefined = categoriesString?.split(',') || undefined;
   const page = Number(req.query.page || 1);
   
-  const count = 32;
+  const count = 1;
   const start = (page - 1) * count;
 
   const orderByName = {

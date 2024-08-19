@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 
 import { SortType } from "../types";
 
-export default async function(req: Request, res: Response, next: NextFunction) {
+export default async function(req: Request, _res: Response, next: NextFunction) {
 
   const sortStr = req.query.sorting as SortType;
   if (!sortStr) {

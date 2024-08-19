@@ -12,8 +12,7 @@ import {
   getCategories_admin,
   editCategory,
   deleteCategory,
-  getCategories_public,
-  getCategory
+  getCategories_public
  } from '../controllers/categoryControllers';
 
 const categoryRouter = express.Router();
@@ -22,7 +21,6 @@ const categoryRouter = express.Router();
 categoryRouter.post('/', verifyJWT, checkCategoryLabel, addCategory);
 categoryRouter.get('/admin', verifyJWT, getCategories_admin);
 categoryRouter.route('/:id')
- .get(verifyJWT, checkId, getCategory)
  .put(verifyJWT, checkId, checkCategoryLabel, editCategory)
  .delete(verifyJWT, checkId, deleteCategory);
 
