@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "npx nodemon",
-    "build": "npm install && rimraf ./build && tsc",
+    "build": "npm install && rm -rf ./build && tsc",
     "start": "node build/index.js"
   },
   "author": "Garik Aghayan",
