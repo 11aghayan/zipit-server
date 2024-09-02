@@ -6,6 +6,11 @@ export default async function (req: Request, res: Response) {
   try {
     const { response } = await req.body;
 
+    /* //TODO: Filter 
+        id,
+        name,
+        minOrder
+   */ 
     return res.json(response);
   } catch (error) {
     console.log(error);

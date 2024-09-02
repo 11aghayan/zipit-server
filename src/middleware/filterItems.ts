@@ -42,11 +42,6 @@ export default async function(req: Request, res: Response, next: NextFunction) {
         promo: promo === 'true' ? {
           gt: 0
         } : undefined
-      },
-      select: {
-        id: true,
-        name: true,
-        minOrder: true
       }
     });
 
