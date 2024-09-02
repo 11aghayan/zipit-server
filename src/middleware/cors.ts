@@ -6,7 +6,7 @@ export default function(req: Request, res: Response, next: NextFunction) {
   const origin = req.get('origin');
   if (origin === 'https://admin.garikaghayan.top') {
     adminCors(req, res, next);
-  } else if (origin === 'https://garikaghayan.top') {
+  } else if (origin === 'https://garikaghayan.top' || origin === 'https://zipit-public.onrender.com') {
     publicCors(req, res, next);
   } else {
     // Handle other origins or no origin header as needed
