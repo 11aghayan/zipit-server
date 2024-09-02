@@ -1,9 +1,9 @@
 import cors from 'cors';
 
 export const allowedOrigins = [
-  'https://garikaghayan.top',
-  'https://admin.garikaghayan.top',
-  'https://zipit-public.onrender.com'
+  'https://www.garikaghayan.top',
+  'https://www.admin.garikaghayan.top'
+  
 ];
 
 export const publicCors = cors({

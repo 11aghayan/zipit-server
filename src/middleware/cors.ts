@@ -4,9 +4,9 @@ import { adminCors, publicCors } from '../config/corsOptions';
 
 export default function(req: Request, res: Response, next: NextFunction) {
   const origin = req.get('origin');
-  if (origin === 'https://admin.garikaghayan.top') {
+  if (origin === 'https://www.admin.garikaghayan.top') {
     adminCors(req, res, next);
-  } else if (origin === 'https://garikaghayan.top' || origin === 'https://zipit-public.onrender.com') {
+  } else if (origin === 'https://www.garikaghayan.top') {
     publicCors(req, res, next);
   } else {
     // Handle other origins or no origin header as needed
