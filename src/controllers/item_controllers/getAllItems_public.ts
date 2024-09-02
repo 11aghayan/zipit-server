@@ -9,7 +9,7 @@ export default async function (req: Request, res: Response) {
     const lang = req.params.lang as LanguageType;
     const response = req.body.response as ItemsResponseType;
 
-    console.log('Lang Items ' + response.items);
+    console.log('All Items ' + JSON.stringify(response.items));
     const langItems = response.items.map(item => ({
       ...item,
       category: { ...item.category, name: item.category.name[lang] },
@@ -17,7 +17,7 @@ export default async function (req: Request, res: Response) {
       description: item.description[lang],
       photos: filterPhotoLang(item.photos, lang),
     }));
-    console.log('Lang Items ' + langItems);
+    console.log('Lang Items ' + JSON.stringify(langItems));
     return res.json({ ...response, items: langItems });
   } catch (error) {
     console.log(error);
