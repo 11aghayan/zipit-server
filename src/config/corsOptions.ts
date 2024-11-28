@@ -1,8 +1,9 @@
 import cors from 'cors';
 
 export const allowedOrigins = [
-  'https://www.garikaghayan.top',
-  'https://www.admin.garikaghayan.top'
+  'https://zipit-public.onrender.com',
+  'https://zipit-admin.onrender.com',
+  'http://localhost:5173'
 ];
 
 export const publicCors = cors({
@@ -12,7 +13,7 @@ export const publicCors = cors({
 });
 
 export const adminCors = cors({
-  origin: [allowedOrigins[1]],
+  origin: [allowedOrigins[1], allowedOrigins[2]],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
